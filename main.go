@@ -14,8 +14,9 @@ import (
 func main() {
 	//env := os.Getenv("ENV")
 	port := os.Getenv("PORT")
+	DB := os.Getenv("DB")
 
-	db, err := gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
+	db, err := gorm.Open(sqlite.Open(DB), &gorm.Config{})
 	if err != nil {
 		log.Println("Cannot connect to SQLite db")
 		return
